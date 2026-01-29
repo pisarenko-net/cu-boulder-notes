@@ -15,3 +15,13 @@ class TestSpiPredictor(TestCase):
         accuracy, _ = Evaluator(predictor).measure_accuracy(validation_data)
 
         self.assertGreaterEqual(accuracy, .45)
+
+    def test_accuracy_barclays(self) -> None:
+        barclays_league_filter = lambda result: result.fixture.league == 'Barclays Premier League'
+        training_data = training_results(csv_location, 2021, barclays_league_filter)
+        validation_data = validation_results(csv_location, 2021, barclays_league_filter)
+
+        predictor = get_latest_spis(training_data)
+        accuracy, _ = Evaluator(predictor).measure_accuracy(validation_data)
+
+        self.assertGreaterEqual(accuracy, .5)
