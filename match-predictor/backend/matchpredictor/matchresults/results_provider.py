@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 from typing import Dict, Callable, List, Optional, cast
 
 import requests
@@ -37,6 +38,9 @@ def load_results(
         try:
             home_goals = int(row['score1'])
             away_goals = int(row['score2'])
+            home_spi = float(row['spi1'])
+            away_spi = float(row['spi2'])
+            date = datetime.strptime(row['date'], "%Y-%m-%d")
 
             return Result(
                 fixture=Fixture(
@@ -47,7 +51,10 @@ def load_results(
                 outcome=match_outcome(home_goals, away_goals),
                 home_goals=home_goals,
                 away_goals=away_goals,
-                season=int(row['season'])
+                season=int(row['season']),
+                home_spi=home_spi,
+                away_spi=away_spi,
+                match_date=date
             )
         except (KeyError, ValueError):
             return None

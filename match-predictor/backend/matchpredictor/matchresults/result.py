@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import date
 from enum import Enum
 
 
@@ -34,3 +35,6 @@ class Result(object):
     home_goals: int
     away_goals: int
     season: int
+    home_spi: float
+    away_spi: float
+    match_date: date
