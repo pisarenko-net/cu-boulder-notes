@@ -1,3 +1,4 @@
+from datetime import date
 from unittest import TestCase
 
 import responses
@@ -27,9 +28,12 @@ class TestResultsProvider(TestCase):
                 away_team=Team(name='Reading'),
                 league="FA Women's Super League",
             ),
+            match_date=date(2016,7,9),
             outcome=Outcome.HOME,
             home_goals=2,
             away_goals=0,
+            home_spi=51.56,
+            away_spi=50.42,
             season=2016,
         )
 

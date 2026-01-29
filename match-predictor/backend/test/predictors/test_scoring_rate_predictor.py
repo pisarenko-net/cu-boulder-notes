@@ -1,3 +1,4 @@
+from datetime import date
 from unittest import TestCase
 
 from matchpredictor.matchresults.result import Team, Fixture, Outcome, Result, Scenario
@@ -14,6 +15,9 @@ class TestScoringRatePredictor(TestCase):
             outcome=Outcome.HOME,
             home_goals=90,
             away_goals=0,
+            home_spi=0.5,
+            away_spi=0.5,
+            match_date=date(1998,1,1),
             season=1999,
         )
     ])

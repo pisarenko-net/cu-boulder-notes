@@ -1,3 +1,4 @@
+from datetime import date
 from unittest import TestCase
 
 from matchpredictor.matchresults.result import Result, Fixture, Team, Outcome
@@ -16,6 +17,9 @@ class TestScoringRates(TestCase):
                 home_goals=4,
                 away_goals=2,
                 season=2022,
+                match_date=date(2021, 1, 1),
+                home_spi=0.5,
+                away_spi=0.5,
                 outcome=Outcome.HOME
             ),
             Result(
@@ -27,6 +31,9 @@ class TestScoringRates(TestCase):
                 home_goals=3,
                 away_goals=3,
                 season=2022,
+                match_date=date(2021, 1, 1),
+                home_spi=0.5,
+                away_spi=0.5,
                 outcome=Outcome.DRAW
             ),
             Result(
@@ -38,6 +45,9 @@ class TestScoringRates(TestCase):
                 home_goals=1,
                 away_goals=5,
                 season=2022,
+                match_date=date(2021, 1, 1),
+                home_spi=0.5,
+                away_spi=0.5,
                 outcome=Outcome.AWAY
             ),
         ]

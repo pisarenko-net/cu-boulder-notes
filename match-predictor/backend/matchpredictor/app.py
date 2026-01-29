@@ -15,6 +15,7 @@ from matchpredictor.predictors.home_predictor import HomePredictor
 from matchpredictor.predictors.linear_regression_predictor import train_regression_predictor
 from matchpredictor.predictors.past_results_predictor import train_results_predictor
 from matchpredictor.predictors.simulation_predictor import train_offense_and_defense_predictor, train_offense_predictor
+from matchpredictor.predictors.spi_predictor import get_latest_spis 
 from matchpredictor.teams.teams_api import teams_api
 from matchpredictor.teams.teams_provider import TeamsProvider
 from matchpredictor.upcominggames.football_data_api_client import FootballDataApiClient
@@ -25,6 +26,7 @@ def build_model_provider(training_data: List[Result]) -> ModelProvider:
     return ModelProvider([
         Model("Alphabet", AlphabetPredictor()),
         Model("Home", HomePredictor()),
+        Model("SPI", get_latest_spis(training_data)),
         Model("Points", train_results_predictor(training_data)),
         Model("Offense simulator (fast)", train_offense_predictor(training_data, 1_000)),
         Model("Offense simulator", train_offense_predictor(training_data, 10_000)),

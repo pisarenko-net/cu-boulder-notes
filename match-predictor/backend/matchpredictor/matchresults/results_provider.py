@@ -40,7 +40,7 @@ def load_results(
             away_goals = int(row['score2'])
             home_spi = float(row['spi1'])
             away_spi = float(row['spi2'])
-            date = datetime.strptime(row['date'], "%Y-%m-%d")
+            date = datetime.strptime(row['date'], "%Y-%m-%d").date()
 
             return Result(
                 fixture=Fixture(
