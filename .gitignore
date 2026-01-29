@@ -1,0 +1,10 @@
+env
+.env
+match-predictor/.idea
+__pycache__
+node_modules
+match-predictor/dist
+match-predictor/integration-tests/cypress/screenshots
+match-predictor/integration-tests/cypress/videos
+match-predictor/integration-tests/cypress/log
+*.pyc
